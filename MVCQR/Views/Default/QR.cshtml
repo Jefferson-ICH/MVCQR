@@ -1,0 +1,69 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    
+
+    <title>QR</title> 
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <!------ Include the above in your HEAD tag ---------->
+    <!-- Bootstrap core CSS -->
+     
+
+    <!-- Custom styles for this template -->
+   
+</head>
+
+<body>
+
+    <div class="container">
+       
+
+        <div class="jumbotron">
+            <h1 class="display-3 text-center">Generador de QR</h1>
+            <p class="lead">Escriba la frase , palabra o URL que desea generar en codigo QR</p>
+
+            <form id="form1" runat="server" action="" @Url.Action("", "Default") method="post">
+                <div class="input-group form-group ">
+                    <input type="text" name="txtQRCORE" class="form-control " value="@ViewBag.txtQRCORE">
+                    <span class="input-group-btn">
+                        <button type="submit" class="btn btn-success ml-3">Generate</button>
+                    </span>
+
+                </div>
+                <div class="justify-content-center">
+                    @if (ViewBag.imageBytes != null)
+                    {
+                        <img class="mx-auto d-block" style="width:380px; height:350px;" src="@string.Format("data:image/png;base64,{0}", Convert.ToBase64String(ViewBag.imageBytes))" />
+                        <button>Descargar</button>
+                    }
+                </div>
+            </form>
+
+        </div>
+
+        
+
+        
+
+
+
+
+        <footer class="footer">
+            <p style="text-align:center">  coded and developed by Jefferson Itas 😉  <p></p>
+        </footer>
+    </div> <!-- /container -->
+
+
+    <form style="border: 1px dashed rgb(66, 133, 244);"></form>
+</body>
+</html>
